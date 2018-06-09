@@ -1,38 +1,35 @@
-import React, { Component } from "react";
-import ShowTodos from "./components/ShowTodos";
-import AddTodo from "./components/AddTodo";
+import React, { Component } from 'react'
+import ShowTodos from './components/ShowTodos'
+import AddTodo from './components/AddTodo'
 
 class TodoApp extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todo: "",
-      todos: []
-    };
+  state = {
+    todo: '',
+    todos: []
   }
 
   clearInput = () => {
-    this.setState({ todo: "" });
-  };
+    this.setState({ todo: '' })
+  }
 
   addTodo = () => {
-    const nextTodos = Array.from(this.state.todos);
-    nextTodos.push(this.state.todo);
-    this.setState({ todos: nextTodos });
-    this.clearInput();
-  };
+    const nextTodos = Array.from(this.state.todos)
+    nextTodos.push(this.state.todo)
+    this.setState({ todos: nextTodos })
+    this.clearInput()
+  }
 
   removeTodo = index => {
-    const nextTodos = Array.from(this.state.todos);
-    nextTodos.splice(index, 1);
-    this.setState({ todos: nextTodos });
-  };
+    const nextTodos = Array.from(this.state.todos)
+    nextTodos.splice(index, 1)
+    this.setState({ todos: nextTodos })
+  }
 
   handleChange = e => {
     this.setState({
       todo: e.target.value
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -44,8 +41,8 @@ class TodoApp extends Component {
         />
         <ShowTodos todos={this.state.todos} removeTodo={this.removeTodo} />
       </div>
-    );
+    )
   }
 }
 
-export default TodoApp;
+export default TodoApp
